@@ -1,7 +1,9 @@
 import './App.scss';
 import NavBar from './components/NavBar/NavBar';
+import AddNewBoat from './pages/Boats/AddNewBoat/AddNewBoat';
 import Boats from './pages/Boats/Boats';
 import BoatDetail from './pages/Boats/DetailPage/BoatDetail';
+import AddNewBooking from './pages/Bookings/AddNewBooking/AddNewBooking';
 import Bookings from './pages/Bookings/Bookings';
 import BookingDetail from './pages/Bookings/DetailPage/BookingDetail';
 import Home from './pages/Home/Home';
@@ -31,6 +33,14 @@ function App() {
 				<Route
 					path='/booking/:bookingid'
 					element={<BookingDetail />}
+				/>
+				<Route
+					path='/boats/add'
+					element={<AddNewBoat />}
+				/>
+				<Route
+					path='/bookings/add'
+					element={<AddNewBooking />}
 				/>
 			</Routes>
 		</>
