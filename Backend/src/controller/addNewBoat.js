@@ -9,7 +9,7 @@ export const addNewBoat = async (req, res) => {
             success: true, result: newBoat
         });
     } catch (error) {
-        res.status(INTERNAL_SERVER_ERROR).json({
+        res.status(status.INTERNAL_SERVER_ERROR).json({
             success: false, error: error
         });
     };
