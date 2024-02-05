@@ -11,7 +11,7 @@ const Home = () => {
 			<h2>Boats</h2>
 			<section>
 				{boats.map((boat) => (
-					<Link to={`/boat/${boat._id}`}>
+					<Link key={boat._id} to={`/boat/${boat._id}`}>
 						<img
 							src={defaultBoat}
 							alt=''

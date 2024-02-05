@@ -9,7 +9,7 @@ const Bookings = () => {
 		<main className='bookings'>
 			<h1>Bookings</h1>
 			{bookings.map((booking) => (
-				<h3>{booking.email}</h3>
+				<h3 key={booking._id}>{booking.email}</h3>
 			))}
 		</main>
 	);

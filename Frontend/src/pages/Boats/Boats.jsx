@@ -9,7 +9,7 @@ const AvailableBoats = () => {
 	return (
 		<main className='boats'>
 			{availableBoats.map((boat) => (
-				<BoatCard boat={boat} />
+				<BoatCard key={boat._id} boat={boat} />
 			))}
 		</main>
 	);
