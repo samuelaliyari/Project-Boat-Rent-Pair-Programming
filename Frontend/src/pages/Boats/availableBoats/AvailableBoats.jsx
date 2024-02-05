@@ -1,18 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
-import './Boats.scss';
+import '../Boats.scss';
 import BoatCard from '../../components/BoatCard/BoatCard';
 import { DataContext } from '../../context/Context';
 
-const AvailableBoats = () => {
+const Boats = () => {
 	const { boats, setBoats } = useContext(DataContext);
-	const availableBoats = boats.filter((boat) => boat.available === true);
+
 	return (
 		<main className='boats'>
-			{availableBoats.map((boat) => (
+			{boats.map((boat) => (
 				<BoatCard boat={boat} />
 			))}
 		</main>
 	);
 };
 
-export default AvailableBoats;
+export default Boats;
