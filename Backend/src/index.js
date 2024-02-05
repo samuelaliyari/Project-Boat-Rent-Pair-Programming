@@ -26,12 +26,12 @@ app.use(morgan("dev"));
 const runServer = async () => {
     console.log('Starting app...');
     app.listen(PORT, console.log("app RUNNING @ Port: " + PORT));
-}; 
+};
 
 const connectDatabase = async () => {
     try {
         console.log('Connecting to BoatBooking database...');
-        await mongoose.connect(URI, { dbName: 'BoatBooking'});
+        await mongoose.connect(URI, { dbName: 'BoatBooking' });
         console.log(('Connection to database succeeded!'));
     } catch (err) {
         console.log('Connection to database failed: ', err);
