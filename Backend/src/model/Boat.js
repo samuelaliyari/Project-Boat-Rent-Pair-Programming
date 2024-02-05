@@ -8,12 +8,8 @@ const boatSchema = new Schema({
     image: { type: String, default: '../data/img/default.jpeg'}, 
     productionYear: { type: Number, min: 1900, max: currentYear,  required: true},
     serialNumber: { type: String, required: true },
-    material: [ 
-        { type: String, required: true }
-    ],
-    boatType: [
-        { type: String, required: true}
-    ]
-}, { collection: 'boats'});
+    material: { type: String, required: true },
+    boatType: { type: String, required: true}
+}, { collection: 'boats', timestamps: true});
 
 export const Boat = mongoose.model('Boat', boatSchema);

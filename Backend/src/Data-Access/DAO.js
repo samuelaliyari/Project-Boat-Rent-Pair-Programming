@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
-import { Boat } from "../model/Boat"
-import { Booking } from "../model/Booking";
-
-
+import { Boat } from "../model/Boat.js"
+import { Booking } from "../model/Booking.js";
 
 export const getAll = async (collection) => {
     if (collection === 'boats') {
@@ -51,15 +49,20 @@ export const deleteOneById = async (collection, id) => {
 export const editOne = async (collection, editedDocument) => {
     if (collection === 'boats') {
         const id = editedDocument._id
-        delete newDocument._id
-        const data = await Boat.findOneAndReplace({ _id: mongoose.Types.ObjectId.createFromHexString(id) }, newDocument);
+        delete editedDocument._id
+        const data = await Boat.findOneAndReplace({ _id: mongoose.Types.ObjectId.createFromHexString(id) }, editedDocument, {returnDocument: 'after'});
         return data;
     };
     if (collection === 'bookings') {
         const id = editedDocument._id
-        delete newDocument._id
-        const data = await Booking.findOneAndReplace({ _id: mongoose.Types.ObjectId.createFromHexString(id) }, newDocument);
+        delete editedDocument._id
+        const data = await Booking.findOneAndReplace({ _id: mongoose.Types.ObjectId.createFromHexString(id) }, editedDocument, {returnDocument: 'after'});
         return data;
     };
+};
+
+export const getManyBookings = async (boatId) => {
+        const data = await Booking.find({ boatId: boatId });
+        return data;
 };
 

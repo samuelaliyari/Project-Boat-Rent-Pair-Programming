@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import multer from "multer";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import { boatsRouter, bookingsRouter } from "./router/index.js";
 
 dotenv.config();
 
@@ -15,13 +16,10 @@ const app = express();
 
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.json());
 
-
-
-
-
-
-
+app.use('/api/v1/boats', boatsRouter.default);
+app.use('/api/v1/bookings', bookingsRouter.default);
 
 const runServer = async () => {
     console.log('Starting app...');
